@@ -11,7 +11,19 @@
 
 <body>
     <div id="app">
-        <div class="container">
+        <div class="container d-flex flex-column align-items-center">
+            <h1 class="text-center">Tasks</h1>
+            <div class="col-6">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" v-for="task in tasks">{{task}}</li>
+                </ul>
+                <form action="index.php" method="post">
+                    <div class="mb-3 d-flex">
+                        <input type="text" class="form-control" placeholder="Add a new task" aria-label="task">
+                        <button type="submit" class="btn btn-primary ms-2">Add Task</button>
+                    </div>
+                </form>
+            </div>
 
         </div>
     </div>
