@@ -20,11 +20,11 @@ createApp({
         },
         addTodo() {
             const data = {
-                newTask: 'newTask'
+                newTask: this.newTask
             };
 
             axios
-                .post(this.url, data, {
+                .post(this.api_url, data, {
                     headers: { "Content_Type": "multipart/form-data" },
                 })
                 .then(resp => {
