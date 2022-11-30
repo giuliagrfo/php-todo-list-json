@@ -19,8 +19,8 @@
                 </ul>
                 <form action="index.php" method="post">
                     <div class="mb-3 d-flex">
-                        <input type="text" class="form-control" placeholder="Add a new task" aria-label="task">
-                        <button type="submit" class="btn btn-primary ms-2">Add Task</button>
+                        <input type="text" class="form-control" placeholder="Add a new task" aria-label="task" v-model="newToDo">
+                        <button type="submit" class="btn btn-primary ms-2" @click="addTodo">Add Task</button>
                     </div>
                 </form>
             </div>

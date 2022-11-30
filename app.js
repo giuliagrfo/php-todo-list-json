@@ -3,7 +3,8 @@ createApp({
     data() {
         return {
             tasks: [],
-            apiUrl: 'server.php'
+            apiUrl: 'server.php',
+            newTask: ''
         }
     },
     methods: {
@@ -16,9 +17,23 @@ createApp({
                 .catch(err => {
                     console.error(err.message);
                 })
+        },
+        addTodo() {
+            const data = {
+                newTask: 'newTask'
+            };
+
+            axios
+                .post(this.url, data, {
+                    headers: { "Content_Type": "multipart/form-data" },
+                })
+                .then(resp => {
+                    this.tasks = resp.data;
+                    console.log(resp.data);
+                })
+        },
+        mounted() {
+            this.getTasks(this.apiUrl);
         }
-    },
-    mounted() {
-        this.getTasks(this.apiUrl);
     }
 }).mount('#app')
